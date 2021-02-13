@@ -1,10 +1,6 @@
 console.log("Im linked")
 
 
-//state variables 
-
-let displayNum = 0;
-let inputValue = 1;
 
 
 //DOM references 
@@ -14,36 +10,78 @@ const minusBtnEl = document.querySelector(".minus-btn")
 const inputBarEl = document.querySelector("#input-bar")
 const displayEl = document.querySelector(".display");
 
+//State Variables 
+
+let displayNum = 0;
+
+
 
 // DOM Content load
 
-document.addEventListener('DOMContentLoaded', initializePage)
+document.addEventListener('DOMContentLoaded', initializeCounter)
 
+function initializeCounter () {
 
-function initializePage () {
-    
-    inputBarEl.value = inputValue
-    console.log("Input Bar Value " + inputBarEl.value)
     displayEl.innerText = displayNum;
+    inputBarEl.value = 1;
+
+}
+
+plusBtnEl.addEventListener('click',  addFunction)
     
-    plusBtnEl.addEventListener('click', () => {
+function addFunction ()  {
+    
+    let inputValue = parseInt(inputBarEl.value);
+        displayNum += inputValue
+        displayEl.innerText = displayNum
+
+}
+    
+    
+minusBtnEl.addEventListener('click', subtractionFunction)
+    
+function subtractionFunction () {
         
-        var x = 5;
-        var y = 5;
-        var z = x + y;
-        console.log("i am test addition of x and y  " + z)
+    let inputValue = parseInt(inputBarEl.value)
+    displayNum -= inputValue
+    displayEl.innerText = displayNum
+    if (displayNum < 0) {
+       displayEl.style.color = "red"
+    }
 
-        let newUserValue = inputBarEl.value 
-        let addedValue = (displayNum + newUserValue) 
-        displayEl.innerText = addedValue;
+}
 
-        console.log("im the newUserValue " + newUserValue)
-        console.log("im the displayNum " + displayNum)
-        console.log("im the addition of the two " + (newUserValue + displayNum))
-        console.log("i am the added value " + addedValue)
+ 
+
+
+
+// document.addEventListener('DOMContentLoaded', initializePage)
+
+
+// function initializePage () {
+    
+//     inputBarEl.value = inputValue
+//     console.log("Input Bar Value " + inputBarEl.value)
+//     displayEl.innerText = displayNum;
+    
+//     plusBtnEl.addEventListener('click', () => {
+        
+//         var x = 5;
+//         var y = 5;
+//         var z = x + y;
+//         console.log("i am test addition of x and y  " + z)
+
+//         let newUserValue = inputBarEl.value 
+//         let addedValue = (displayNum + newUserValue) 
+//         displayEl.innerText = addedValue;
+
+//         console.log("im the newUserValue " + newUserValue)
+//         console.log("im the displayNum " + displayNum)
+//         console.log("im the addition of the two " + (newUserValue + displayNum))
+//         console.log("i am the added value " + addedValue)
         
 
-    });
+//     });
 
 
 //// I give up here.  I am so frustrated, haha.  I cannot for the life of me figure out why
@@ -55,14 +93,14 @@ function initializePage () {
 
 
 
-    minusBtnEl.addEventListener('click', () => {
+//     minusBtnEl.addEventListener('click', () => {
         
-        let subtractedValue = displayNum - inputBarEl.value
-        displayEl.innerText = subtractedValue
+//         let subtractedValue = displayNum - inputBarEl.value
+//         displayEl.innerText = subtractedValue
         
-        console.log("minusBtn works")
+//         console.log("minusBtn works")
 
-    });
+//     });
 
-}
+// }
 
